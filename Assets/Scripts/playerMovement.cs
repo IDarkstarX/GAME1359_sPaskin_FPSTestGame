@@ -64,6 +64,8 @@ public class playerMovement : MonoBehaviour
 
         Vector3 moveDirection = (camForward * v * moveSpeed) + (camRight * h * moveSpeed);
 
+
+
         rb.velocity = new Vector3(moveDirection.x, rb.velocity.y, moveDirection.z);
 
         if (Input.GetButtonDown("Jump") && canJump)

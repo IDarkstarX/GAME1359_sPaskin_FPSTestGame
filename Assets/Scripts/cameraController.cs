@@ -10,10 +10,16 @@ public class cameraController : MonoBehaviour
     [SerializeField]
     Transform lookvertical;
 
+    [SerializeField]
+    float angleLimit = 90f;
+
+    float headRotation = 0f;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
@@ -25,20 +31,12 @@ public class cameraController : MonoBehaviour
 
         Debug.Log(lookvertical.localRotation.x);
 
-        if (lookvertical.rotation.y >= 0.45)
-        {
-            lookvertical.Rotate(new Vector3(-80, 0, 0));
-            Debug.Log("too far!");
-        }
-        if (lookvertical.rotation.y <= -0.45)
-        {
-            lookvertical.Rotate(new Vector3(80, 0, 0));
-            Debug.Log("too far!");
-        }
+        headRotation += y;
+        headRotation = Mathf.Clamp(headRotation, -angleLimit, angleLimit);
 
         transform.Rotate(new Vector3(0, x*rotSpeed*Time.deltaTime, 0));
-        lookvertical.Rotate(new Vector3(-y * rotSpeed * Time.deltaTime, 0, 0));
 
-       
+        lookvertical.localEulerAngles = new Vector3(-headRotation, 0f, 0f);
+
     }
 }
