@@ -16,12 +16,16 @@ public class playerMovement : MonoBehaviour
 
     Rigidbody rb;
 
+    float normJumpSpeed;
+
     bool canJump = false;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+
+        normJumpSpeed = jumpSpeed;
     }
 
     // Update is called once per frame
@@ -30,6 +34,7 @@ public class playerMovement : MonoBehaviour
         rb.AddForce(Vector3.down * gravity * rb.mass);
 
         canJump = false;
+        jumpSpeed = normJumpSpeed;
 
         Ray r = new Ray(transform.position, Vector3.down);
 
@@ -42,7 +47,10 @@ public class playerMovement : MonoBehaviour
             if (hit.transform.tag == "walkable" && hit.transform != null)
             {
                 canJump = true;
-
+                if(hit.transform.GetComponent<NOTSCRIPT_bouncy>())
+                {
+                    jumpSpeed = jumpSpeed * 2;
+                }
             }
             Debug.Log(hit.transform.name);
         }
