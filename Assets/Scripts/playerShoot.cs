@@ -24,6 +24,7 @@ public class playerShoot : MonoBehaviour
     void Update()
     {
         Debug.Log("Ammo: " + gameManager.instance.ammo);
+        Debug.Log("Score: " + gameManager.instance.score);
         if (gameManager.instance.ammo > 0 && Input.GetButtonDown("Fire1"))
         {
             gameManager.instance.ammo--;

@@ -30,6 +30,7 @@ public class bulletController : MonoBehaviour
     {
         if(collision.transform.tag == "Target")
         {
+
             Destroy(collision.gameObject.transform.parent.gameObject);
             gameManager.instance.score++;
             Destroy(gameObject);

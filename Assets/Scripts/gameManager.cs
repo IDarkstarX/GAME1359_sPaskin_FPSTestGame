@@ -61,6 +61,11 @@ public class gameManager : MonoBehaviour
                 Instantiate(pickup, pickups[i], Quaternion.identity);
             }
         }
+
+        if(score == 3)
+        {
+            goToScene(2);
+        }
     }
 
     public void goToScene(int scene)
