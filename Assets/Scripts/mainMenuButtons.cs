@@ -22,6 +22,7 @@ public class mainMenuButtons : MonoBehaviour
 
     public void pressedStart()
     {
+        gameManager.instance.lives = 3;
         gameManager.instance.goToScene(1);
     }
 

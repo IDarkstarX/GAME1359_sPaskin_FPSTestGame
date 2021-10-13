@@ -7,8 +7,21 @@ public class gameManager : MonoBehaviour
 {
     public static gameManager instance;
 
-    public int ammo;
-    public int score;
+    public float ammo;
+    public float score;
+    public float lives;
+    public float health;
+
+    [SerializeField]
+    float ammoRespawn = 5;
+
+    float timer = 0;
+
+    [SerializeField]
+    GameObject pickup;
+
+    [SerializeField]
+    Vector3[] pickups;
 
     void Start()
     {
@@ -24,16 +37,52 @@ public class gameManager : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
 
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(health <= 0)
+        {
+            RestartOrDie();
+        }
+
+        timer = timer + Time.deltaTime;
+
+        Debug.Log(timer);
+
+        if(timer >= ammoRespawn)
+        {
+            Debug.Log("Respawn time!");
+            timer = 0;
+            for(int i = 0; i < pickups.Length; i++)
+            {
+                Instantiate(pickup, pickups[i], Quaternion.identity);
+            }
+        }
     }
 
     public void goToScene(int scene)
     {
+        
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         SceneManager.LoadScene(scene);
+    }
+
+    public void RestartOrDie()
+    {
+        if (lives > 0)
+        {
+            ammo = 3;
+            score = 0;
+            health = 100;
+            lives -= 1;
+            goToScene(1);
+        } else
+        {
+            goToScene(3);
+        }
     }
 }

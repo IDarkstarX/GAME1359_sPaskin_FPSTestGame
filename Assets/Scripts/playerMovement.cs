@@ -17,6 +17,7 @@ public class playerMovement : MonoBehaviour
     Rigidbody rb;
 
     float normJumpSpeed;
+    float normMoveSpeed;
 
     bool canJump = false;
 
@@ -26,6 +27,7 @@ public class playerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
 
         normJumpSpeed = jumpSpeed;
+        normMoveSpeed = moveSpeed;
     }
 
     // Update is called once per frame
@@ -35,12 +37,13 @@ public class playerMovement : MonoBehaviour
 
         canJump = false;
         jumpSpeed = normJumpSpeed;
+        moveSpeed = normMoveSpeed;
 
         Ray r = new Ray(transform.position, Vector3.down);
 
         RaycastHit hit;
 
-        Debug.DrawLine(r.origin, r.origin + Vector3.down * 10);
+        //Debug.DrawLine(r.origin, r.origin + Vector3.down * 10);
 
         if (Physics.Raycast(r, out hit, 3))
         {
@@ -49,13 +52,17 @@ public class playerMovement : MonoBehaviour
                 canJump = true;
                 if(hit.transform.GetComponent<NOTSCRIPT_bouncy>())
                 {
-                    jumpSpeed = jumpSpeed * 2;
+                    jumpSpeed = (float)(jumpSpeed * 1.5);
                 }
             }
-            Debug.Log(hit.transform.name);
+            else if (hit.transform != null)
+            {
+                moveSpeed = (float)(moveSpeed / 2);
+            }
+            //Debug.Log(hit.transform.name);
         }
 
-        Debug.Log(canJump);
+        //Debug.Log(canJump);
 
         //mobility//
 

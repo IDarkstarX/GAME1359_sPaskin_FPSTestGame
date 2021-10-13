@@ -29,7 +29,7 @@ public class cameraController : MonoBehaviour
         float x = Input.GetAxis("Mouse X");
         float y = Input.GetAxis("Mouse Y");
 
-        Debug.Log(lookvertical.localRotation.x);
+        //Debug.Log(lookvertical.localRotation.x);
 
         headRotation += y;
         headRotation = Mathf.Clamp(headRotation, -angleLimit, angleLimit);
