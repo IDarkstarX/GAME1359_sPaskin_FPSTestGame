@@ -30,7 +30,7 @@ public class gameManager : MonoBehaviour
         {
             instance = this;
         }
-        if (instance != null)
+        else if (instance != null)
         {
             Destroy(gameObject);
         }
@@ -50,7 +50,7 @@ public class gameManager : MonoBehaviour
 
         timer = timer + Time.deltaTime;
 
-        Debug.Log(timer);
+        //Debug.Log(timer);
 
         if(timer >= ammoRespawn)
         {
@@ -62,7 +62,7 @@ public class gameManager : MonoBehaviour
             }
         }
 
-        if(score == 3)
+        if(score >= 3 && SceneManager.GetActiveScene().buildIndex != 2)
         {
             goToScene(2);
         }
@@ -70,7 +70,6 @@ public class gameManager : MonoBehaviour
 
     public void goToScene(int scene)
     {
-        
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         SceneManager.LoadScene(scene);
@@ -85,7 +84,7 @@ public class gameManager : MonoBehaviour
             health = 100;
             lives -= 1;
             goToScene(1);
-        } else
+        } else if(SceneManager.GetActiveScene().buildIndex != 3)
         {
             goToScene(3);
         }

@@ -238,6 +238,63 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a254a23057090647a9710b8bf56777a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &469634169
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 469634171}
+  - component: {fileID: 469634170}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &469634170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 469634169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0015263b54fd33d4d9b8548d9808536f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ammo: 3
+  score: 0
+  lives: 2
+  health: 100
+  ammoRespawn: 15
+  pickup: {fileID: 8871019770723160535, guid: 90aa55038c9d248418e06c4303623a68, type: 3}
+  pickups:
+  - {x: -4.25, y: 0.5, z: 16.5}
+  - {x: -6, y: -10, z: 81.5}
+  - {x: -6, y: -16.5, z: 110.5}
+  - {x: 66.25, y: -8.5, z: 159}
+  - {x: 87.5, y: -8.5, z: 124}
+  - {x: -62.5, y: -31, z: 114}
+  - {x: -89.5, y: -20, z: 33}
+--- !u!4 &469634171
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 469634169}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &566360186
 GameObject:
   m_ObjectHideFlags: 0
@@ -371,58 +428,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 566360186}
   m_CullTransparentMesh: 1
---- !u!1 &680190668
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 680190670}
-  - component: {fileID: 680190669}
-  m_Layer: 0
-  m_Name: GameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &680190669
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 680190668}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0015263b54fd33d4d9b8548d9808536f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ammo: 3
-  score: 0
-  lives: 2
-  health: 100
-  ammoRespawn: 5
-  pickup: {fileID: 8871019770723160535, guid: 90aa55038c9d248418e06c4303623a68, type: 3}
-  pickups:
-  - {x: -4.25, y: 0.5, z: 16.5}
-  - {x: -6, y: -10, z: 81.5}
---- !u!4 &680190670
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 680190668}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0

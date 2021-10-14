@@ -1,13 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class playerCollision : MonoBehaviour
 {
+
+    [SerializeField]
+    Image bar;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        UpdateHUD();
     }
 
     // Update is called once per frame
@@ -43,6 +48,12 @@ public class playerCollision : MonoBehaviour
         if(other.transform.GetComponent<NOTSCRIPT_hurt>())
         {
             gameManager.instance.health-=0.05f;
+            UpdateHUD();
         }
+    }
+
+    void UpdateHUD()
+    {
+        bar.fillAmount = gameManager.instance.health / 100.0f;
     }
 }

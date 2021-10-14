@@ -1,13 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class mainMenuButtons : MonoBehaviour
+public class noDupes : MonoBehaviour
 {
-
-    
-
     // Start is called before the first frame update
     void Start()
     {
@@ -20,14 +16,11 @@ public class mainMenuButtons : MonoBehaviour
         
     }
 
-    public void pressedStart()
+    private void OnTriggerStay(Collider other)
     {
-        gameManager.instance.lives = 2;
-        gameManager.instance.goToScene(1);
-    }
-
-    public void pressedQuit()
-    {
-        Application.Quit();
+        if (other.transform.GetComponent<NOTSCRIPT_ammo>())
+        {
+            Destroy(other.gameObject);
+        }
     }
 }
